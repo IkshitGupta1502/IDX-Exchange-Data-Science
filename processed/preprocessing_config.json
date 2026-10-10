@@ -1,0 +1,109 @@
+{
+  "test_month": "2026-04",
+  "train_window_months": 15,
+  "train_months": [
+    "2025-01",
+    "2026-03"
+  ],
+  "thresholds_learned_on_train": {
+    "price_lo": 187000.0,
+    "price_hi": 8500000.0,
+    "ppsf_lo": 144.00024112525116,
+    "ppsf_hi": 2299.7002237680585
+  },
+  "target": "log(ClosePrice)",
+  "features": {
+    "numeric": [
+      "log_living_area",
+      "BedroomsTotal",
+      "BathroomsTotalInteger",
+      "log_lot_sqft",
+      "age",
+      "GarageSpaces",
+      "ParkingTotal",
+      "hoa_monthly",
+      "Latitude",
+      "Longitude",
+      "comp_log_ppsf",
+      "comp_log_price",
+      "comp_log_dist_km",
+      "month_sin",
+      "month_cos"
+    ],
+    "binary": [
+      "PoolPrivateYN",
+      "ViewYN",
+      "FireplaceYN",
+      "AttachedGarageYN"
+    ],
+    "low_cardinality": [
+      "CountyOrParish",
+      "levels_cat"
+    ],
+    "high_cardinality": [
+      "zip5",
+      "City",
+      "HighSchoolDistrict"
+    ]
+  },
+  "excluded_fields": {
+    "ListPrice": "Only exists for listed homes; near-1.0 correlation with ClosePrice",
+    "OriginalListPrice": "Only exists for listed homes; near-1.0 correlation with ClosePrice",
+    "DaysOnMarket": "Only exists once a sale process has happened",
+    "CumulativeDaysOnMarket": "Only exists once a sale process has happened",
+    "PurchaseContractDate": "Only exists once a sale process has happened",
+    "ListingContractDate": "Only exists for listed homes; with CloseDate it rebuilds Days on Market (used for one cleaning check only, then dropped)",
+    "ContractStatusChangeDate": "Sale-process event date",
+    "MlsStatus": "Sale-process status (always Closed here)",
+    "BuyerAgencyCompensation": "Sale-process term",
+    "NewConstructionYN": "Listing-status flag; age (from YearBuilt) carries the same information for any address"
+  },
+  "comp_features": {
+    "k": 10,
+    "lookback_months": 12,
+    "rule": "strictly earlier months only"
+  },
+  "rows": {
+    "single_family_loaded": 309735,
+    "after_row_cleaning": 306122,
+    "train": 155216,
+    "test": 12175
+  },
+  "seed": 42,
+  "data_snapshot": [
+    "CRMLSSold202401_filled.csv",
+    "CRMLSSold202402.csv",
+    "CRMLSSold202403_filled.csv",
+    "CRMLSSold202404_filled.csv",
+    "CRMLSSold202405_filled.csv",
+    "CRMLSSold202406_filled.csv",
+    "CRMLSSold202407_filled.csv",
+    "CRMLSSold202408.csv",
+    "CRMLSSold202409.csv",
+    "CRMLSSold202410.csv",
+    "CRMLSSold202411.csv",
+    "CRMLSSold202412.csv",
+    "CRMLSSold202501_filled.csv",
+    "CRMLSSold202502.csv",
+    "CRMLSSold202503.csv",
+    "CRMLSSold202504.csv",
+    "CRMLSSold202505.csv",
+    "CRMLSSold202506.csv",
+    "CRMLSSold202507.csv",
+    "CRMLSSold202508.csv",
+    "CRMLSSold202509.csv",
+    "CRMLSSold202510.csv",
+    "CRMLSSold202511.csv",
+    "CRMLSSold202512.csv",
+    "CRMLSSold202601.csv",
+    "CRMLSSold202602.csv",
+    "CRMLSSold202603.csv",
+    "CRMLSSold202604.csv"
+  ],
+  "versions": {
+    "python": "3.10.12",
+    "pandas": "2.3.3",
+    "numpy": "2.2.6",
+    "scikit-learn": "1.7.2"
+  }
+}
