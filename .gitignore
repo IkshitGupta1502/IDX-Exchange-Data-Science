@@ -1,0 +1,20 @@
+# Raw data: too large and owned by IDX (re-download from the IDX FTP, see the task document)
+csv/
+
+# Too large for GitHub (106 MB) or regenerable: rebuild with  python3 py/build_processed.py
+processed/sold_sfr_clean.csv
+processed/preprocessor.joblib
+# processed/train.csv and processed/test.csv ARE committed
+
+# Confidential documents and files containing credentials / API keys
+Documentations/
+py/crmls_sold.py
+py/crmls_listed.py
+
+# Scripts used only to generate the notebooks
+notebooks/_build_*.py
+
+# System and editor files
+.DS_Store
+__pycache__/
+.ipynb_checkpoints/
