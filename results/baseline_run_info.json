@@ -1,0 +1,29 @@
+{
+  "model": "LinearRegression (scikit-learn defaults)",
+  "target": "log(ClosePrice)",
+  "test_month": "2026-04",
+  "train_window_months": 15,
+  "train_rows": 155216,
+  "test_rows": 12175,
+  "seed": 42,
+  "test_metrics": {
+    "n": 12175.0,
+    "MdAPE": 8.625163405132122,
+    "R2": 0.8885747635145217,
+    "R2_log": 0.9321758972756906,
+    "MAPE": 12.019401438044138,
+    "MAE": 161002.85777008018,
+    "RMSE": 319549.2781941272,
+    "MedAE": 76128.30515369202,
+    "within_5pct": 31.071868583162214,
+    "within_10pct": 56.20533880903491,
+    "within_20pct": 83.39219712525667,
+    "median_bias_pct": -0.6129396981614805
+  },
+  "versions": {
+    "python": "3.10.12",
+    "pandas": "2.3.3",
+    "numpy": "2.2.6",
+    "scikit-learn": "1.7.2"
+  }
+}
