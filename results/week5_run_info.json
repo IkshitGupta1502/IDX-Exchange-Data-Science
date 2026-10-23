@@ -1,0 +1,17 @@
+{
+  "decision_tree": {
+    "max_depth": 20,
+    "min_samples_leaf": 50
+  },
+  "random_forest": {
+    "max_features": 0.33,
+    "min_samples_leaf": 3,
+    "n_estimators": 150
+  },
+  "seed": 42,
+  "test_month": "2026-04",
+  "versions": {
+    "python": "3.13.17",
+    "scikit-learn": "1.7.2"
+  }
+}
