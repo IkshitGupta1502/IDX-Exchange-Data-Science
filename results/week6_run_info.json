@@ -1,0 +1,197 @@
+{
+  "feature_sets": {
+    "A. Old (Week 5)": {
+      "num": [
+        "log_living_area",
+        "BedroomsTotal",
+        "BathroomsTotalInteger",
+        "log_lot_sqft",
+        "age",
+        "GarageSpaces",
+        "ParkingTotal",
+        "hoa_monthly",
+        "Latitude",
+        "Longitude",
+        "comp_log_ppsf",
+        "comp_log_price",
+        "comp_log_dist_km",
+        "month_sin",
+        "month_cos"
+      ],
+      "bin": [
+        "PoolPrivateYN",
+        "ViewYN",
+        "FireplaceYN",
+        "AttachedGarageYN"
+      ],
+      "low": [
+        "CountyOrParish",
+        "levels_cat"
+      ],
+      "high": [
+        "zip5",
+        "City",
+        "HighSchoolDistrict"
+      ]
+    },
+    "B. + home shape": {
+      "num": [
+        "log_living_area",
+        "BedroomsTotal",
+        "BathroomsTotalInteger",
+        "log_lot_sqft",
+        "age",
+        "GarageSpaces",
+        "ParkingTotal",
+        "hoa_monthly",
+        "Latitude",
+        "Longitude",
+        "comp_log_ppsf",
+        "comp_log_price",
+        "comp_log_dist_km",
+        "month_sin",
+        "month_cos",
+        "beds_per_bath",
+        "log_sqft_per_bed",
+        "log_lot_to_living"
+      ],
+      "bin": [
+        "PoolPrivateYN",
+        "ViewYN",
+        "FireplaceYN",
+        "AttachedGarageYN"
+      ],
+      "low": [
+        "CountyOrParish",
+        "levels_cat"
+      ],
+      "high": [
+        "zip5",
+        "City",
+        "HighSchoolDistrict"
+      ]
+    },
+    "C. + school district": {
+      "num": [
+        "log_living_area",
+        "BedroomsTotal",
+        "BathroomsTotalInteger",
+        "log_lot_sqft",
+        "age",
+        "GarageSpaces",
+        "ParkingTotal",
+        "hoa_monthly",
+        "Latitude",
+        "Longitude",
+        "comp_log_ppsf",
+        "comp_log_price",
+        "comp_log_dist_km",
+        "month_sin",
+        "month_cos",
+        "sd_sed_pct",
+        "sd_el_pct",
+        "sd_charter_pct",
+        "sd_log_enroll_density"
+      ],
+      "bin": [
+        "PoolPrivateYN",
+        "ViewYN",
+        "FireplaceYN",
+        "AttachedGarageYN"
+      ],
+      "low": [
+        "CountyOrParish",
+        "levels_cat",
+        "sd_type",
+        "sd_assist"
+      ],
+      "high": [
+        "zip5",
+        "City",
+        "HighSchoolDistrict",
+        "sd_elem_name",
+        "sd_high_name"
+      ]
+    },
+    "D. New (all)": {
+      "num": [
+        "log_living_area",
+        "BedroomsTotal",
+        "BathroomsTotalInteger",
+        "log_lot_sqft",
+        "age",
+        "GarageSpaces",
+        "ParkingTotal",
+        "hoa_monthly",
+        "Latitude",
+        "Longitude",
+        "comp_log_ppsf",
+        "comp_log_price",
+        "comp_log_dist_km",
+        "month_sin",
+        "month_cos",
+        "beds_per_bath",
+        "log_sqft_per_bed",
+        "log_lot_to_living",
+        "sd_sed_pct",
+        "sd_el_pct",
+        "sd_charter_pct",
+        "sd_log_enroll_density"
+      ],
+      "bin": [
+        "PoolPrivateYN",
+        "ViewYN",
+        "FireplaceYN",
+        "AttachedGarageYN"
+      ],
+      "low": [
+        "CountyOrParish",
+        "levels_cat",
+        "sd_type",
+        "sd_assist"
+      ],
+      "high": [
+        "zip5",
+        "City",
+        "HighSchoolDistrict",
+        "sd_elem_name",
+        "sd_high_name"
+      ]
+    }
+  },
+  "chosen_on_validation": {
+    "Linear Regression": "D. New (all)",
+    "Decision Tree": "C. + school district",
+    "Random Forest": "C. + school district"
+  },
+  "hyperparameters": {
+    "decision_tree": {
+      "max_depth": 20,
+      "min_samples_leaf": 50
+    },
+    "random_forest": {
+      "max_features": 0.33,
+      "min_samples_leaf": 3,
+      "n_estimators": 150
+    }
+  },
+  "school_district_source": {
+    "file": "geo/California_School_District_Areas_2024-25.geojson",
+    "dataset": "California School District Areas 2024-25 (CDE)",
+    "numeric_attributes": {
+      "sd_sed_pct": "% socioeconomically disadvantaged students",
+      "sd_el_pct": "% English learners",
+      "sd_charter_pct": "% of enrollment in charter schools",
+      "sd_log_enroll_density": "log students per sq mi"
+    },
+    "excluded": "race/ethnicity fields (fair housing); file ELpct (mis-scaled)",
+    "snap_m": 500
+  },
+  "seed": 42,
+  "test_month": "2026-04",
+  "versions": {
+    "python": "3.13.18",
+    "scikit-learn": "1.7.2",
+    "shapely": "2.2.0"
+  }
+}

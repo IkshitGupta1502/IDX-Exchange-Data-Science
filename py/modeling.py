@@ -26,6 +26,11 @@ STR_COLS = {"zip5": str, "City": str, "HighSchoolDistrict": str, "CountyOrParish
             "levels_cat": str, "ListingKey": str}
 
 
+def features_of(pipe: Pipeline) -> dict:
+    """Feature groups a pipeline was built with (read back from its ColumnTransformer)."""
+    return {name: list(cols) for name, _, cols in pipe.named_steps["prep"].transformers}
+
+
 # ------------------------------------------------------------------------------------------------
 # Loading
 # ------------------------------------------------------------------------------------------------
@@ -46,19 +51,20 @@ def load_clean(path: Path) -> pd.DataFrame:
 # ------------------------------------------------------------------------------------------------
 # Pipelines
 # ------------------------------------------------------------------------------------------------
-def make_pipeline(model, min_frequency: int = 30) -> Pipeline:
-    """Week 3 preprocessor + regressor. Fit on train only; the target is log price."""
-    pp.assert_no_leakage()
-    return Pipeline([("prep", pp.build_preprocessor(min_frequency)), ("model", model)])
+def make_pipeline(model, min_frequency: int = 30, features: dict | None = None) -> Pipeline:
+    """Week 3 preprocessor + regressor. Fit on train only; the target is log price.
+    `features` (Week 6+): feature groups from feature_engineering.feature_set(); default = Week 3 inputs."""
+    pp.assert_no_leakage(sum(features.values(), []) if features else pp.FEATURES)
+    return Pipeline([("prep", pp.build_preprocessor(min_frequency, features)), ("model", model)])
 
 
 def fit(pipe: Pipeline, train: pd.DataFrame) -> Pipeline:
-    return clone(pipe).fit(pp.model_frame(train), train[pp.TARGET])
+    return clone(pipe).fit(pp.model_frame(train, features_of(pipe)), train[pp.TARGET])
 
 
 def predict_price(fitted: Pipeline, d: pd.DataFrame) -> np.ndarray:
     """Predicted close price in dollars (exp of the predicted log price, i.e. a median estimate)."""
-    return np.exp(fitted.predict(pp.model_frame(d)))
+    return np.exp(fitted.predict(pp.model_frame(d, features_of(fitted))))
 
 
 # ------------------------------------------------------------------------------------------------

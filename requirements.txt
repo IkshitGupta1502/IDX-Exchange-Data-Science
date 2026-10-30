@@ -9,3 +9,5 @@ joblib==1.6.0
 nbformat==5.11.1
 nbconvert==7.17.1
 ipykernel==7.3.0
+# Week 6: school district spatial join (also tested with 2.2.0)
+shapely==2.1.2

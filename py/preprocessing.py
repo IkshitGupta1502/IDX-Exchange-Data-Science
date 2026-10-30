@@ -290,7 +290,7 @@ def within_thresholds(d: pd.DataFrame, t: dict) -> pd.Series:
 # ------------------------------------------------------------------------------------------------
 # 6. Imputation, encoding, scaling: one ColumnTransformer, fit on train only
 # ------------------------------------------------------------------------------------------------
-def build_preprocessor(min_frequency: int = 30) -> ColumnTransformer:
+def build_preprocessor(min_frequency: int = 30, features: dict | None = None) -> ColumnTransformer:
     """Missing values, categorical encoding and scaling, wrapped so `fit` only ever sees train.
 
     numeric      median imputation + missing-indicator columns, then standard scaling
@@ -298,8 +298,12 @@ def build_preprocessor(min_frequency: int = 30) -> ColumnTransformer:
     low-card     County, Levels: one-hot; categories with < min_frequency train rows pooled as infrequent
     high-card    ZIP, City, High-school district: cross-fitted target encoding of log price (each
                  training row's encoding is computed without its own fold), then scaled
+
+    `features` (optional, Week 6+): dict with keys num / bin / low / high giving the column lists.
+    Default = the Week 3 lists above, so earlier notebooks behave exactly as before.
     """
-    assert_no_leakage()
+    f = features or {"num": NUM_FEATURES, "bin": BIN_FEATURES, "low": LOWCARD_FEATURES, "high": HIGHCARD_FEATURES}
+    assert_no_leakage(sum(f.values(), []))
     num = Pipeline([("impute", SimpleImputer(strategy="median", add_indicator=True)),
                     ("scale", StandardScaler())])
     binary = SimpleImputer(strategy="constant", fill_value=0.0, add_indicator=True)
@@ -310,15 +314,16 @@ def build_preprocessor(min_frequency: int = 30) -> ColumnTransformer:
                      ("target_enc", TargetEncoder(target_type="continuous", cv=5, shuffle=True,
                                                   random_state=SEED)),
                      ("scale", StandardScaler())])
-    return ColumnTransformer([("num", num, NUM_FEATURES), ("bin", binary, BIN_FEATURES),
-                              ("low", low, LOWCARD_FEATURES), ("high", high, HIGHCARD_FEATURES)],
+    return ColumnTransformer([("num", num, list(f["num"])), ("bin", binary, list(f["bin"])),
+                              ("low", low, list(f["low"])), ("high", high, list(f["high"]))],
                              verbose_feature_names_out=True)
 
 
-def model_frame(d: pd.DataFrame) -> pd.DataFrame:
-    """Feature columns in the exact dtypes the preprocessor expects."""
-    X = d[FEATURES].copy()
-    for c in LOWCARD_FEATURES + HIGHCARD_FEATURES:
+def model_frame(d: pd.DataFrame, features: dict | None = None) -> pd.DataFrame:
+    """Feature columns in the exact dtypes the preprocessor expects (default: Week 3 lists)."""
+    f = features or {"num": NUM_FEATURES, "bin": BIN_FEATURES, "low": LOWCARD_FEATURES, "high": HIGHCARD_FEATURES}
+    X = d[sum(f.values(), [])].copy()
+    for c in list(f["low"]) + list(f["high"]):
         X[c] = X[c].astype(object).where(X[c].notna(), np.nan)
     return X
 
