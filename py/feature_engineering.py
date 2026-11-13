@@ -22,7 +22,7 @@ Two groups of new inputs, both available for any address at prediction time (tea
 The join result is cached to processed/school_district_join.csv (one row per ListingKey), so later
 weeks do not need the boundary file or shapely.
 
-Used by: notebooks/05_feature_engineering.ipynb and later weeks.
+Used by: notebooks/04b_feature_engineering.ipynb and later weeks.
 """
 from __future__ import annotations
 

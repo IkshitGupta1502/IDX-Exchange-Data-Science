@@ -135,3 +135,44 @@ def rolling_backtest(clean: pd.DataFrame, pipe: Pipeline, test_months, x_months:
         rows.append({"test_month": str(m), "train_months": f"{tr.close_month.min()} to {tr.close_month.max()}",
                      "n_train": len(tr), **full_metrics(te.ClosePrice, p)})
     return pd.DataFrame(rows), preds
+
+
+# ------------------------------------------------------------------------------------------------
+# Week 7: fast tuning for boosted models
+# ------------------------------------------------------------------------------------------------
+def cutoff_matrices(clean: pd.DataFrame, test_months, x_months: int, features: dict | None = None,
+                    min_frequency: int = 30) -> dict:
+    """For each cutoff, run the same split -> train-only thresholds -> preprocessor fit as
+    rolling_backtest, and keep the transformed matrices so many models can be tried on them.
+
+    Fitting a Pipeline does exactly preprocessor.fit_transform(train) then model.fit, so scoring a
+    model on these matrices gives the same result as rolling_backtest with that model.
+    Returns {month: {"X_train", "y_train", "X_test", "test", "n_train", "train_months"}}.
+    """
+    out = {}
+    for m in test_months:
+        tr, te = pp.window_split(clean, m, x_months)
+        th = pp.fit_thresholds(tr)
+        tr, te = tr[pp.within_thresholds(tr, th)], te[pp.within_thresholds(te, th)]
+        prep = pp.build_preprocessor(min_frequency, features)
+        Xtr = prep.fit_transform(pp.model_frame(tr, features), tr[pp.TARGET])
+        Xte = prep.transform(pp.model_frame(te, features))
+        out[str(m)] = {"X_train": Xtr, "y_train": tr[pp.TARGET].to_numpy(), "X_test": Xte, "test": te,
+                       "n_train": len(tr), "train_months": f"{tr.close_month.min()} to {tr.close_month.max()}",
+                       "feature_names": prep.get_feature_names_out()}
+    return out
+
+
+def staged_log_predictions(model, X, checkpoints) -> dict:
+    """Predicted log price after each number of boosting rounds in `checkpoints`, from one fitted
+    LightGBM or XGBoost model (so n_estimators is tuned without refitting)."""
+    name = type(model).__module__.split(".")[0]
+    out = {}
+    for k in checkpoints:
+        if name == "lightgbm":
+            out[k] = model.predict(X, num_iteration=k)
+        elif name == "xgboost":
+            out[k] = model.predict(X, iteration_range=(0, k))
+        else:
+            raise ValueError(f"staged predictions not supported for {type(model)}")
+    return out

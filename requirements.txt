@@ -11,3 +11,6 @@ nbconvert==7.17.1
 ipykernel==7.3.0
 # Week 6: school district spatial join (also tested with 2.2.0)
 shapely==2.1.2
+# Week 7: gradient boosting
+lightgbm==4.7.0
+xgboost==3.4.1

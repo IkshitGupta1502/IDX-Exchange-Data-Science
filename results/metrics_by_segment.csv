@@ -1,0 +1,113 @@
+segment_type,segment,model,n,median_price,MdAPE,MAPE,MAE,within_10pct,median_bias
+County,Alameda,Blend (C),582,1323000.0,10.035,13.352,193953.29,49.828,-2.834
+County,Contra Costa,Blend (C),574,902842.5,7.059,9.709,122368.69,65.505,-0.6
+County,Los Angeles,Blend (C),3009,1011000.0,7.816,10.97,163730.847,60.419,-0.299
+County,Orange,Blend (C),1165,1430000.0,6.747,9.135,172293.955,66.009,-1.103
+County,Other (<300 sales),Blend (C),1523,639000.0,7.325,11.088,124882.77,61.458,-0.877
+County,Riverside,Blend (C),1875,639000.0,5.667,9.006,86706.43,70.773,-0.068
+County,San Bernardino,Blend (C),1219,555000.0,5.785,8.758,53104.369,70.55,-0.063
+County,San Diego,Blend (C),1421,1095000.0,7.691,10.275,155197.645,61.084,-0.854
+County,Santa Clara,Blend (C),388,1895000.0,7.425,10.844,237508.325,63.144,-0.804
+County,Ventura,Blend (C),419,999009.0,7.321,10.63,155169.963,61.814,-0.839
+County,Alameda,Random Forest (C),582,1323000.0,10.237,13.729,204128.409,48.797,-4.637
+County,Contra Costa,Random Forest (C),574,902842.5,7.455,10.213,130665.073,62.369,-2.174
+County,Los Angeles,Random Forest (C),3009,1011000.0,8.409,11.765,178005.262,56.763,-1.237
+County,Orange,Random Forest (C),1165,1430000.0,7.169,9.712,185958.393,64.721,-1.861
+County,Other (<300 sales),Random Forest (C),1523,639000.0,7.896,12.09,137468.867,58.7,-1.633
+County,Riverside,Random Forest (C),1875,639000.0,5.907,9.426,91432.59,68.533,-0.326
+County,San Bernardino,Random Forest (C),1219,555000.0,5.913,9.306,58012.795,68.417,-0.834
+County,San Diego,Random Forest (C),1421,1095000.0,8.114,10.996,171670.87,59.606,-1.967
+County,Santa Clara,Random Forest (C),388,1895000.0,7.953,11.131,246020.247,60.567,-1.955
+County,Ventura,Random Forest (C),419,999009.0,7.398,11.14,167726.3,61.575,-1.727
+County,Alameda,Linear Regression,582,1323000.0,10.937,14.036,211437.244,47.079,-3.621
+County,Contra Costa,Linear Regression,574,902842.5,7.855,10.837,141950.455,59.582,-1.993
+County,Los Angeles,Linear Regression,3009,1011000.0,9.419,12.892,190669.067,52.376,-0.436
+County,Orange,Linear Regression,1165,1430000.0,7.922,10.762,202826.499,58.798,-0.913
+County,Other (<300 sales),Linear Regression,1523,639000.0,9.185,13.136,147421.908,52.922,-0.173
+County,Riverside,Linear Regression,1875,639000.0,7.663,11.086,104551.182,61.333,0.308
+County,San Bernardino,Linear Regression,1219,555000.0,7.425,10.638,64753.986,62.428,0.506
+County,San Diego,Linear Regression,1421,1095000.0,8.94,12.096,190069.733,55.454,-1.975
+County,Santa Clara,Linear Regression,388,1895000.0,8.435,12.139,264256.613,58.763,-0.298
+County,Ventura,Linear Regression,419,999009.0,8.89,11.838,175524.679,55.609,-0.679
+Living area,"1,000-1,500",Blend (C),3138,749000.0,6.676,9.512,75514.103,67.75,-1.411
+Living area,"1,500-2,000",Blend (C),3296,868500.0,6.378,9.311,97881.28,67.506,-0.397
+Living area,"2,000-2,500",Blend (C),2188,1100000.0,6.801,9.936,137445.261,64.122,0.183
+Living area,"2,500-3,500",Blend (C),2032,1420000.0,7.84,11.03,202383.192,59.941,-0.073
+Living area,"3,500+",Blend (C),834,2700000.0,10.39,13.743,422353.487,48.561,-1.073
+Living area,"<1,000",Blend (C),687,599000.0,8.868,12.454,69758.245,54.003,-1.019
+Living area,"1,000-1,500",Random Forest (C),3138,749000.0,7.111,10.073,80425.557,64.691,-1.785
+Living area,"1,500-2,000",Random Forest (C),3296,868500.0,6.618,9.835,104358.077,65.686,-1.334
+Living area,"2,000-2,500",Random Forest (C),2188,1100000.0,7.288,10.574,146477.472,60.786,-0.779
+Living area,"2,500-3,500",Random Forest (C),2032,1420000.0,8.35,11.802,220231.41,57.037,-1.279
+Living area,"3,500+",Random Forest (C),834,2700000.0,10.768,14.788,470583.537,46.763,-3.807
+Living area,"<1,000",Random Forest (C),687,599000.0,9.104,13.301,73436.523,55.75,-1.02
+Living area,"1,000-1,500",Linear Regression,3138,749000.0,8.024,10.951,85977.54,60.421,-1.798
+Living area,"1,500-2,000",Linear Regression,3296,868500.0,7.743,11.103,112311.618,59.466,0.29
+Living area,"2,000-2,500",Linear Regression,2188,1100000.0,8.153,11.598,154792.587,57.77,0.93
+Living area,"2,500-3,500",Linear Regression,2032,1420000.0,9.31,12.797,234622.323,53.002,0.339
+Living area,"3,500+",Linear Regression,834,2700000.0,12.392,16.778,535199.228,40.767,-3.746
+Living area,"<1,000",Linear Regression,687,599000.0,11.288,14.563,85062.974,44.541,-5.304
+Age (years),0-10,Blend (C),1113,764000.0,4.989,7.281,117874.635,77.987,0.101
+Age (years),11-30,Blend (C),2208,860000.0,5.877,8.545,129902.515,71.694,0.216
+Age (years),31-50,Blend (C),2915,875000.0,6.679,9.844,125670.681,65.283,-0.424
+Age (years),51-70,Blend (C),2977,1030000.0,7.629,10.641,137670.843,61.404,-1.103
+Age (years),70+,Blend (C),2956,925000.0,9.229,12.614,161188.372,52.909,-1.668
+Age (years),Unknown,Blend (C),6,1035000.0,12.464,12.613,175228.5,33.333,-7.016
+Age (years),0-10,Random Forest (C),1113,764000.0,5.269,8.359,146052.432,73.675,-1.276
+Age (years),11-30,Random Forest (C),2208,860000.0,6.068,9.116,140009.979,68.297,-0.551
+Age (years),31-50,Random Forest (C),2915,875000.0,7.094,10.483,133208.909,63.19,-1.175
+Age (years),51-70,Random Forest (C),2977,1030000.0,8.129,11.221,146456.445,59.557,-1.63
+Age (years),70+,Random Forest (C),2956,925000.0,9.789,13.24,172618.657,51.116,-2.626
+Age (years),Unknown,Random Forest (C),6,1035000.0,10.504,13.24,166028.0,50.0,-10.504
+Age (years),0-10,Linear Regression,1113,764000.0,6.916,10.151,171916.712,65.948,-1.248
+Age (years),11-30,Linear Regression,2208,860000.0,7.63,10.842,160252.557,61.005,0.668
+Age (years),31-50,Linear Regression,2915,875000.0,8.225,11.731,147416.461,58.216,0.471
+Age (years),51-70,Linear Regression,2977,1030000.0,8.687,11.886,150152.113,56.567,-0.147
+Age (years),70+,Linear Regression,2956,925000.0,10.844,14.017,181757.251,46.617,-3.08
+Age (years),Unknown,Linear Regression,6,1035000.0,10.383,14.459,172094.333,50.0,-6.35
+Distance to 10 comps,Q1 (closest),Blend (C),2435,837100.0,6.057,8.974,107801.717,67.844,-0.276
+Distance to 10 comps,Q2,Blend (C),2435,925000.0,6.904,9.503,125023.897,65.667,-0.958
+Distance to 10 comps,Q3,Blend (C),2435,945000.0,6.758,9.817,134700.428,65.175,-0.259
+Distance to 10 comps,Q4,Blend (C),2435,988000.0,7.232,10.482,154101.278,63.943,-0.646
+Distance to 10 comps,Q5 (farthest),Blend (C),2435,860000.0,8.506,12.437,164910.487,55.565,-0.74
+Distance to 10 comps,Q1 (closest),Random Forest (C),2435,837100.0,6.454,9.29,113257.751,65.914,-1.261
+Distance to 10 comps,Q2,Random Forest (C),2435,925000.0,7.419,10.014,136947.518,62.464,-2.011
+Distance to 10 comps,Q3,Random Forest (C),2435,945000.0,7.265,10.507,144961.921,63.696,-1.344
+Distance to 10 comps,Q4,Random Forest (C),2435,988000.0,7.562,11.047,163754.307,60.945,-1.232
+Distance to 10 comps,Q5 (farthest),Random Forest (C),2435,860000.0,9.09,13.602,183279.782,53.224,-1.19
+Distance to 10 comps,Q1 (closest),Linear Regression,2435,837100.0,7.651,10.333,121998.103,61.561,-0.12
+Distance to 10 comps,Q2,Linear Regression,2435,925000.0,8.392,11.149,150072.465,56.797,-1.37
+Distance to 10 comps,Q3,Linear Regression,2435,945000.0,8.172,11.546,155364.796,57.947,-0.413
+Distance to 10 comps,Q4,Linear Regression,2435,988000.0,8.96,12.243,176564.123,55.195,-0.849
+Distance to 10 comps,Q5 (farthest),Linear Regression,2435,860000.0,10.114,14.826,201014.793,49.528,-0.007
+School district type,Elementary + High,Blend (C),2998,860000.0,6.069,8.749,116931.711,70.18,-0.71
+School district type,Unified,Blend (C),9177,935000.0,7.463,10.731,143964.072,61.502,-0.511
+School district type,Elementary + High,Random Forest (C),2998,860000.0,6.434,9.451,128721.698,67.045,-1.32
+School district type,Unified,Random Forest (C),9177,935000.0,7.901,11.363,154882.038,59.355,-1.476
+School district type,Elementary + High,Linear Regression,2998,860000.0,7.5,10.611,142406.31,61.975,-0.146
+School district type,Unified,Linear Regression,9177,935000.0,8.986,12.48,167078.092,54.321,-0.763
+Actual price quintile,Q1: $189K-$575K,Blend (C),2461,450000.0,6.396,10.822,44779.736,65.949,1.559
+Actual price quintile,Q2: $575K-$800K,Blend (C),2464,699000.0,5.46,8.172,56183.577,73.782,-0.004
+Actual price quintile,"Q3: $800K-$1,100K",Blend (C),2480,925000.0,6.409,8.847,83062.736,69.435,-0.307
+Actual price quintile,"Q4: $1,100K-$1,652K",Blend (C),2335,1325000.0,7.989,10.643,144104.361,59.229,-1.717
+Actual price quintile,"Q5: $1,652K-$8,400K",Blend (C),2435,2300000.0,10.145,12.791,361643.131,49.363,-4.478
+Actual price quintile,Q1: $189K-$575K,Random Forest (C),2461,450000.0,6.66,11.543,47483.481,64.323,1.893
+Actual price quintile,Q2: $575K-$800K,Random Forest (C),2464,699000.0,5.723,8.56,58806.226,72.159,-0.294
+Actual price quintile,"Q3: $800K-$1,100K",Random Forest (C),2480,925000.0,6.632,9.162,86100.906,67.137,-1.197
+Actual price quintile,"Q4: $1,100K-$1,652K",Random Forest (C),2335,1325000.0,8.216,11.399,154336.954,57.302,-3.254
+Actual price quintile,"Q5: $1,652K-$8,400K",Random Forest (C),2435,2300000.0,11.131,13.869,399013.426,44.887,-6.839
+Actual price quintile,Q1: $189K-$575K,Linear Regression,2461,450000.0,8.334,12.971,53935.92,57.416,2.731
+Actual price quintile,Q2: $575K-$800K,Linear Regression,2464,699000.0,7.531,10.49,72456.697,62.5,0.365
+Actual price quintile,"Q3: $800K-$1,100K",Linear Regression,2480,925000.0,7.522,10.391,97069.059,61.734,0.755
+Actual price quintile,"Q4: $1,100K-$1,652K",Linear Regression,2335,1325000.0,8.674,11.584,156653.05,55.974,-1.626
+Actual price quintile,"Q5: $1,652K-$8,400K",Linear Regression,2435,2300000.0,11.78,14.681,428100.219,43.203,-6.812
+Actual price quintile,Q1: $189K-$575K,Comp $/sqft × size,2461,450000.0,12.726,17.037,73548.458,41.0,-0.722
+Actual price quintile,Q2: $575K-$800K,Comp $/sqft × size,2464,699000.0,13.139,16.553,114780.937,40.341,-1.985
+Actual price quintile,"Q3: $800K-$1,100K",Comp $/sqft × size,2480,925000.0,12.925,16.201,151169.127,39.718,-0.23
+Actual price quintile,"Q4: $1,100K-$1,652K",Comp $/sqft × size,2335,1325000.0,12.31,16.642,224393.101,40.985,-1.055
+Actual price quintile,"Q5: $1,652K-$8,400K",Comp $/sqft × size,2435,2300000.0,12.537,16.464,452420.532,40.493,-2.609
+Predicted price quintile,Q1: $207K-$580K,Blend (C),2435,450000.0,6.292,9.502,40583.452,67.762,-0.485
+Predicted price quintile,Q2: $580K-$799K,Blend (C),2435,699990.0,5.369,8.094,55269.595,74.743,-0.859
+Predicted price quintile,"Q3: $799K-$1,084K",Blend (C),2435,916000.0,6.59,9.112,85168.697,68.049,-0.342
+Predicted price quintile,"Q4: $1,084K-$1,636K",Blend (C),2435,1315000.0,8.28,11.129,146726.514,57.618,-0.577
+Predicted price quintile,"Q5: $1,636K-$7,903K",Blend (C),2435,2300000.0,9.986,13.378,358789.548,50.021,-0.511

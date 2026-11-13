@@ -1,0 +1,142 @@
+{
+  "feature_set": "C. + school district",
+  "features": {
+    "num": [
+      "log_living_area",
+      "BedroomsTotal",
+      "BathroomsTotalInteger",
+      "log_lot_sqft",
+      "age",
+      "GarageSpaces",
+      "ParkingTotal",
+      "hoa_monthly",
+      "Latitude",
+      "Longitude",
+      "comp_log_ppsf",
+      "comp_log_price",
+      "comp_log_dist_km",
+      "month_sin",
+      "month_cos",
+      "sd_sed_pct",
+      "sd_el_pct",
+      "sd_charter_pct",
+      "sd_log_enroll_density"
+    ],
+    "bin": [
+      "PoolPrivateYN",
+      "ViewYN",
+      "FireplaceYN",
+      "AttachedGarageYN"
+    ],
+    "low": [
+      "CountyOrParish",
+      "levels_cat",
+      "sd_type",
+      "sd_assist"
+    ],
+    "high": [
+      "zip5",
+      "City",
+      "HighSchoolDistrict",
+      "sd_elem_name",
+      "sd_high_name"
+    ]
+  },
+  "lightgbm": {
+    "num_leaves": 255,
+    "learning_rate": 0.025,
+    "n_estimators": 3000,
+    "subsample": 0.8,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.7,
+    "min_child_samples": 20,
+    "random_state": 42
+  },
+  "xgboost": {
+    "max_depth": 10,
+    "learning_rate": 0.05,
+    "n_estimators": 750,
+    "subsample": 0.8,
+    "colsample_bytree": 0.7,
+    "min_child_weight": 1,
+    "tree_method": "hist",
+    "random_state": 42
+  },
+  "random_forest": {
+    "max_features": 0.33,
+    "min_samples_leaf": 3,
+    "n_estimators": 150
+  },
+  "blend_weights_log_scale": {
+    "LightGBM": 0.5,
+    "XGBoost": 0.5,
+    "Random Forest": 0.0
+  },
+  "grids": {
+    "lightgbm": {
+      "num_leaves": [
+        31,
+        63,
+        127,
+        255
+      ],
+      "learning_rate": [
+        0.025,
+        0.05,
+        0.1
+      ],
+      "n_estimators": [
+        100,
+        250,
+        500,
+        750,
+        1000,
+        1500,
+        2000,
+        2500,
+        3000,
+        4000
+      ]
+    },
+    "xgboost": {
+      "max_depth": [
+        6,
+        8,
+        10
+      ],
+      "learning_rate": [
+        0.05,
+        0.1
+      ],
+      "n_estimators": [
+        100,
+        250,
+        500,
+        750,
+        1000,
+        1500,
+        2000,
+        2500,
+        3000
+      ]
+    }
+  },
+  "chosen_on": [
+    "2026-01",
+    "2026-02",
+    "2026-03"
+  ],
+  "best_week7_model_on_validation": "Blend",
+  "saved_models": {
+    "LightGBM": "models/lightgbm.joblib",
+    "XGBoost": "models/xgboost.joblib"
+  },
+  "seed": 42,
+  "test_month": "2026-04",
+  "versions": {
+    "python": "3.13.18",
+    "scikit-learn": "1.7.2",
+    "lightgbm": "4.7.0",
+    "xgboost": "3.4.1"
+  }
+}
